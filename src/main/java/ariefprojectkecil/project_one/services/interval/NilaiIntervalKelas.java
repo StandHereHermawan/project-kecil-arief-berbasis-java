@@ -3,8 +3,12 @@ package ariefprojectkecil.project_one.services.interval;
 import ariefprojectkecil.project_one.services.borderlowerclass.BatasAtasNilaiKelasTerbawah;
 import ariefprojectkecil.project_one.services.borderlowerclass.BatasBawahNilaiKelasTerbawah;
 import ariefprojectkecil.project_one.services.class_operations.LebarKelas;
+import ariefprojectkecil.project_one.services.frekuensi.BanyakFrekuensi;
+import ariefprojectkecil.project_one.services.frekuensi.Frekuensi;
 
 public class NilaiIntervalKelas {
+
+    private Frekuensi[] banyakFrekuensi;
 
     private IntervalKelas[] values;
 
@@ -29,5 +33,13 @@ public class NilaiIntervalKelas {
                 values[i].setNilaiMaksimumKelas(values[i].getNilaiMinimumKelas() + lebarKelas.getValue());
             }
         }
+    }
+
+    public Frekuensi[] getBanyakFrekuensi() {
+        return banyakFrekuensi;
+    }
+
+    public void setBanyakFrekuensi(BanyakFrekuensi banyakFrekuensi1) {
+        this.banyakFrekuensi = banyakFrekuensi1.getBanyak();
     }
 }
