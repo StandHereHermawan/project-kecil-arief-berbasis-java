@@ -6,20 +6,18 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class JarakDataTest {
+    private final NilaiMinimum nilaiMinimum = new NilaiMinimum();
+    private final NilaiMaksimum nilaiMaksimum = new NilaiMaksimum();
+    private final JarakData jarakData = new JarakData();
+    private final int[] number1 = Data.number_1;
 
     @Test
     void test() {
-        NilaiMaksimum operasiMax = new NilaiMaksimum();
-        operasiMax.setMaximum(Data.number);
+        nilaiMaksimum.setValue(number1);
+        nilaiMinimum.setValue(number1);
+        jarakData.setValue(nilaiMaksimum, nilaiMinimum);
 
-        NilaiMinimum operasiMin = new NilaiMinimum();
-        operasiMin.setMinimum(Data.number);
-
-        JarakData operasiJD = new JarakData();
-        operasiJD.setValue(operasiMax, operasiMin);
-
-        Integer value = operasiJD.getValue();
-        assertEquals(92, value);
-        System.out.println("Jarak Data adalah: " + value);
+        assertEquals(92, jarakData.getValue());
+        System.out.println("Jarak Data adalah: " + jarakData.getValue());
     }
 }

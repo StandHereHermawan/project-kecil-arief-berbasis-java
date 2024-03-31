@@ -10,7 +10,7 @@ public class BanyakIntervalKelas {
         return banyak;
     }
 
-    public void setBanyak(BanyakKelas banyakKelas) {
+    public void setValues(BanyakKelas banyakKelas) {
         IntervalKelas[] result = new IntervalKelas[banyakKelas.getValue()];
         for (int i = 0; i < banyakKelas.getValue(); i++) {
             result[i] = new IntervalKelas();

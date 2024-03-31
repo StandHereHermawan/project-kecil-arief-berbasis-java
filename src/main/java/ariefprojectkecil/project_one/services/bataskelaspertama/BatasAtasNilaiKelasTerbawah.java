@@ -1,6 +1,5 @@
-package ariefprojectkecil.project_one.services.borderlowerclass;
+package ariefprojectkecil.project_one.services.bataskelaspertama;
 
-import ariefprojectkecil.project_one.services.JarakData;
 import ariefprojectkecil.project_one.services.NilaiMinimum;
 import ariefprojectkecil.project_one.services.class_operations.LebarKelas;
 
@@ -12,16 +11,10 @@ public class BatasAtasNilaiKelasTerbawah {
 
     private double thirdAlternative;
 
-    public void setFirstAlternative(LebarKelas lebarKelas, NilaiMinimum minimum) {
+    public void setValues(LebarKelas lebarKelas, NilaiMinimum minimum) {
         this.firstAlternative = lebarKelas.getValue() + (minimum.getValue() - 0.5);
-    }
-
-    public void setSecondAlternative(LebarKelas lebarKelas, NilaiMinimum minimum) {
-        this.secondAlternative = lebarKelas.getValue() + (minimum.getValue() - 1.0);
-    }
-
-    public void setThirdAlternative(LebarKelas lebarKelas, NilaiMinimum minimum) {
-        this.thirdAlternative = lebarKelas.getValue() + (minimum.getValue() - 1.5);
+        this.secondAlternative = lebarKelas.getValue() + (minimum.getValue() - 1.5);
+        this.thirdAlternative = lebarKelas.getValue() + (minimum.getValue() - 2.5);
     }
 
     public double getFirstAlternative() {

@@ -12,7 +12,15 @@ public class LebarKelas {
 
     public void setValue(JarakData jarakData, BanyakKelas banyakKelas) {
         double value = (double) jarakData.getValue() / banyakKelas.getValue();
-        this.value = (int) (value + 1);
+        int nilaiTetap = (int) value;
+        int naik1nilai = (nilaiTetap + 1);
+        double cekNilai = nilaiTetap + 0.5;
+
+        if (value >= cekNilai) {
+            this.value = naik1nilai;
+        } else {
+            this.value = nilaiTetap;
+        }
     }
 
     /**

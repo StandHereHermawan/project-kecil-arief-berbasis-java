@@ -9,7 +9,7 @@ public class JarakData {
     }
 
     public void setValue(NilaiMaksimum maksimum, NilaiMinimum minimum){
-        this.value = maksimum.getMaximum() - minimum.getValue();
+        this.value = maksimum.getValue() - minimum.getValue();
     }
 
     /**

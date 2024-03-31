@@ -10,7 +10,7 @@ public class BanyakFrekuensi {
         return banyak;
     }
 
-    public void setBanyak(BanyakKelas banyakKelas) {
+    public void setValues(BanyakKelas banyakKelas) {
         Frekuensi[] banyakFrekuensi = new Frekuensi[banyakKelas.getValue()];
         for (int i = 0; i < banyakKelas.getValue(); i++) {
             banyakFrekuensi[i] = new Frekuensi();

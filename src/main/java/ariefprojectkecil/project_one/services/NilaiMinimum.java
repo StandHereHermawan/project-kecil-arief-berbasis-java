@@ -8,7 +8,7 @@ public class NilaiMinimum {
         return minimum;
     }
 
-    public void setMinimum(int[] arraysofnumber) {
+    public void setValue(int[] arraysofnumber) {
         int value = 0;
         for (int i = 0; i < arraysofnumber.length; i++) {
             if (value == 0){

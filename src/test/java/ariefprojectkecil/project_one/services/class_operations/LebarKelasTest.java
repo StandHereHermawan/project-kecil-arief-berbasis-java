@@ -6,27 +6,28 @@ import ariefprojectkecil.project_one.services.NilaiMaksimum;
 import ariefprojectkecil.project_one.services.NilaiMinimum;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class LebarKelasTest {
+
+    private final NilaiMaksimum nilaiMaksimum = new NilaiMaksimum();
+
+    private final NilaiMinimum nilaiMinimum = new NilaiMinimum();
+
+    private final JarakData jarakData = new JarakData();
+
+    private final BanyakKelas banyakKelas = new BanyakKelas();
+
+    private final LebarKelas lebarKelas = new LebarKelas();
+
+    private final int[] number1 = Data.number_1;
 
     @Test
     void test() {
-        NilaiMaksimum operasiMax = new NilaiMaksimum();
-        operasiMax.setMaximum(Data.number);
+        nilaiMaksimum.setValue(number1);
+        nilaiMinimum.setValue(number1);
+        jarakData.setValue(nilaiMaksimum, nilaiMinimum);
+        banyakKelas.setValue(number1);
+        lebarKelas.setValue(jarakData, banyakKelas);
 
-        NilaiMinimum operasiMin = new NilaiMinimum();
-        operasiMin.setMinimum(Data.number);
-
-        JarakData operasiJD = new JarakData();
-        operasiJD.setValue(operasiMax, operasiMin);
-
-        BanyakKelas opsBK = new BanyakKelas();
-        opsBK.setValue(Data.number);
-
-        LebarKelas ops = new LebarKelas();
-        ops.setValue(operasiJD, opsBK);
-
-        System.out.println(ops.getValue());
+        System.out.println("Lebar kelas: " + lebarKelas.getValue());
     }
 }

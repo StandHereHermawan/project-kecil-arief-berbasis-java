@@ -6,13 +6,14 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class NilaiMinimumTest {
+    private final NilaiMinimum nilaiMinimum = new NilaiMinimum();
+    private final int[] number1 = Data.number_1;
 
     @Test
     void test() {
-        NilaiMinimum function = new NilaiMinimum();
-        function.setMinimum(Data.number);
-        Integer nilaiMinimum = function.getValue();
-        assertEquals(6, nilaiMinimum);
-        System.out.println("Nilai Minimum adalah: " + nilaiMinimum);
+
+        nilaiMinimum.setValue(number1);
+        assertEquals(6, nilaiMinimum.getValue());
+        System.out.println("Nilai Minimum adalah: " + nilaiMinimum.getValue());
     }
 }

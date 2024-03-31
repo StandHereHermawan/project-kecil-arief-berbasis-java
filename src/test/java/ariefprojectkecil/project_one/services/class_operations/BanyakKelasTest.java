@@ -7,12 +7,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BanyakKelasTest {
 
+    private final int[] number1 = Data.number_1;
+
+    private final BanyakKelas banyakKelas = new BanyakKelas();
+
     @Test
     void test() {
-        BanyakKelas ops = new BanyakKelas();
-        ops.setValue(Data.number);
-        Integer value = ops.getValue();
-        assertEquals(7 ,value);
-        System.out.println("Nilai dari banyak kelas adalah: " + value);
+        banyakKelas.setValue(number1);
+        assertEquals(7, banyakKelas.getValue());
+        System.out.println("Nilai dari banyak kelas adalah: " + banyakKelas.getValue());
     }
 }

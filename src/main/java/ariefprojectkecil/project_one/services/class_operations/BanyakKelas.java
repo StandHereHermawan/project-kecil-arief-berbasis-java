@@ -9,8 +9,16 @@ public class BanyakKelas {
     }
 
     public void setValue(int[] arrayData) {
-        double result = 1 + 3.3 * Math.log10(arrayData.length);
-        this.value = (int) (result + 1);
+        double value = 1 + 3.3 * Math.log10(arrayData.length);
+        double valueTurun1Nilai = (int) value;
+        double valueCheck = valueTurun1Nilai + 0.5;
+        double valueNaik1Nilai = (valueTurun1Nilai + 1);
+
+        if (value >= valueCheck) {
+            this.value = (int) valueNaik1Nilai;
+        } else {
+            this.value = (int) valueTurun1Nilai;
+        }
     }
 
     /**

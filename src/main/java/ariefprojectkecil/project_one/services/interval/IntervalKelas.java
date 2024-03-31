@@ -1,8 +1,5 @@
 package ariefprojectkecil.project_one.services.interval;
 
-import ariefprojectkecil.project_one.services.borderlowerclass.BatasAtasNilaiKelasTerbawah;
-import ariefprojectkecil.project_one.services.borderlowerclass.BatasBawahNilaiKelasTerbawah;
-
 public class IntervalKelas {
 
     private double nilaiMaksimumKelas;

@@ -4,50 +4,37 @@ import ariefprojectkecil.project_one.repository.Data;
 import ariefprojectkecil.project_one.services.JarakData;
 import ariefprojectkecil.project_one.services.NilaiMaksimum;
 import ariefprojectkecil.project_one.services.NilaiMinimum;
-import ariefprojectkecil.project_one.services.borderlowerclass.BatasAtasNilaiKelasTerbawah;
-import ariefprojectkecil.project_one.services.borderlowerclass.BatasBawahNilaiKelasTerbawah;
+import ariefprojectkecil.project_one.services.bataskelaspertama.BatasAtasNilaiKelasTerbawah;
+import ariefprojectkecil.project_one.services.bataskelaspertama.BatasBawahNilaiKelasTerbawah;
 import ariefprojectkecil.project_one.services.class_operations.BanyakKelas;
 import ariefprojectkecil.project_one.services.class_operations.LebarKelas;
+import ariefprojectkecil.project_one.util.Show;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class NilaiIntervalKelasTest {
+    private final NilaiMinimum nilaiMinimum = new NilaiMinimum();
+    private final NilaiMaksimum nilaiMaksimum = new NilaiMaksimum();
+    private final BanyakKelas banyakKelas = new BanyakKelas();
+    private final JarakData jarakData = new JarakData();
+    private final LebarKelas lebarKelas = new LebarKelas();
+    private final BatasBawahNilaiKelasTerbawah batasBawahNilaiKelasTerbawah = new BatasBawahNilaiKelasTerbawah();
+    private final BatasAtasNilaiKelasTerbawah batasAtasNilaiKelasTerbawah = new BatasAtasNilaiKelasTerbawah();
+    private final BanyakIntervalKelas banyakIntervalKelas = new BanyakIntervalKelas();
+    private final NilaiIntervalKelas nilaiIntervalKelas = new NilaiIntervalKelas();
+    private final int[] number1 = Data.number_1;
 
     @Test
     void test() {
-        NilaiMinimum opsMin = new NilaiMinimum();
-        opsMin.setMinimum(Data.number);
+        nilaiMinimum.setValue(number1);
+        nilaiMaksimum.setValue(number1);
+        banyakKelas.setValue(number1);
+        jarakData.setValue(nilaiMaksimum, nilaiMinimum);
+        batasBawahNilaiKelasTerbawah.setValues(nilaiMinimum);
+        lebarKelas.setValue(jarakData, banyakKelas);
+        batasAtasNilaiKelasTerbawah.setValues(lebarKelas, nilaiMinimum);
+        banyakIntervalKelas.setValues(banyakKelas);
+        nilaiIntervalKelas.setNilaiPerBanyakIntervalKelas(batasAtasNilaiKelasTerbawah, batasBawahNilaiKelasTerbawah, lebarKelas, banyakIntervalKelas);
 
-        NilaiMaksimum opsMax = new NilaiMaksimum();
-        opsMax.setMaximum(Data.number);
-
-        BanyakKelas opsBK = new BanyakKelas();
-        opsBK.setValue(Data.number);
-
-        JarakData opsJD = new JarakData();
-        opsJD.setValue(opsMax, opsMin);
-
-        BatasBawahNilaiKelasTerbawah opsBBNKT = new BatasBawahNilaiKelasTerbawah();
-        opsBBNKT.setSecondAlternative(opsMin);
-
-        LebarKelas opsLK = new LebarKelas();
-        opsLK.setValue(opsJD, opsBK);
-
-        BatasAtasNilaiKelasTerbawah opsbakb = new BatasAtasNilaiKelasTerbawah();
-        opsbakb.setSecondAlternative(opsLK, opsMin);
-
-        BanyakIntervalKelas opsBIK = new BanyakIntervalKelas();
-        opsBIK.setBanyak(opsBK);
-
-        NilaiIntervalKelas opsNIK = new NilaiIntervalKelas();
-        opsNIK.setValues(opsbakb, opsBBNKT, opsLK, opsBIK);
-
-        IntervalKelas[] items = opsNIK.getValues();
-        for (int i = 0; i < items.length; i++) {
-            System.out.println(
-                    "Data Nilai Maksimum interval kelas " + (i + 1) + "  adalah: " + items[i].getNilaiMaksimumKelas()+ ", "
-                            + "Data Nilai Minimum interval kelas " + (i + 1) + "  adalah: " + items[i].getNilaiMinimumKelas());
-        }
+        Show.menampilkanNilaiIntervalKelasSesuaiBanyakKelas(nilaiIntervalKelas);
     }
 }
